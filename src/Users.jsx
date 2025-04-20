@@ -22,24 +22,22 @@ function Users() {
 
   const deleteUser = (id) =>{
     setUserList((userList) => (userList.filter(item => item.id !== id)))
-    console.log(id)};
+  };
 
   
- if(userList.length!==0){
+{
   return (
-    
+    userList.length?
     <div>
-      {userList.map((data, id) => (
+      {userList.map((data) => (
         <li key={data.id}>
          {data.id} {data.username}  
           <button onClick={() => deleteUser(data.id)}>Delete</button>
         </li>
       ))}
-    </div>
+    </div>:<h3>No more Users</h3>
   );}
-  return (
-    <h3>No more Users</h3>
-  )
+
 }
 
 export default Users;
